@@ -1,0 +1,444 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Light Theme Semantic Tokens */
+    --color-bg-app: #f4f7f8;
+    --color-bg-card: rgba(255, 255, 255, 0.90);
+    --color-bg-card-subtle: rgba(248, 250, 252, 0.92);
+    --color-bg-card-elevated: rgba(255, 255, 255, 0.98);
+    --color-bg-surface: rgba(15, 23, 42, 0.04);
+    --color-bg-surface-hover: rgba(15, 23, 42, 0.08);
+    --color-bg-surface-active: rgba(15, 23, 42, 0.12);
+    --color-bg-input: rgba(15, 23, 42, 0.03);
+
+    --color-border-subtle: rgba(15, 23, 42, 0.08);
+    --color-border-medium: rgba(15, 23, 42, 0.14);
+    --color-border-strong: rgba(15, 23, 42, 0.22);
+
+    --color-text-primary: #0f172a;
+    --color-text-secondary: #334155;
+    --color-text-muted: #64748b;
+    --color-text-subtle: #94a3b8;
+    --color-text-placeholder: #64748b;
+
+    --color-accent-text: #047857;
+    --color-accent-hover: #065f46;
+    --color-accent-surface: rgba(16, 185, 129, 0.12);
+    --color-accent-border: rgba(16, 185, 129, 0.35);
+    --color-accent-solid: #10b981;
+    --color-accent-solid-text: #022c22;
+
+    --color-cyan-text: #0e7490;
+    --color-cyan-surface: rgba(6, 182, 212, 0.12);
+    --color-cyan-border: rgba(6, 182, 212, 0.35);
+
+    --color-amber-text: #b45309;
+    --color-amber-surface: rgba(245, 158, 11, 0.12);
+    --color-amber-border: rgba(245, 158, 11, 0.35);
+
+    --color-rose-text: #be123c;
+    --color-rose-surface: rgba(244, 63, 94, 0.12);
+    --color-rose-border: rgba(244, 63, 94, 0.35);
+
+    --color-purple-text: #7e22ce;
+    --color-purple-surface: rgba(168, 85, 247, 0.12);
+    --color-purple-border: rgba(168, 85, 247, 0.35);
+
+    --color-progress-track: rgba(15, 23, 42, 0.08);
+
+    --color-bg-backdrop: rgba(15, 23, 42, 0.55);
+    --color-bg-backdrop-heavy: rgba(15, 23, 42, 0.75);
+
+    --color-rose-solid: #e11d48;
+    --color-rose-solid-hover: #f43f5e;
+    --color-rose-solid-text: #ffffff;
+
+    --color-cyan-solid: #06b6d4;
+    --color-cyan-solid-text: #082f49;
+    --color-amber-solid: #f59e0b;
+    --color-amber-solid-text: #451a03;
+    --color-purple-solid: #8b5cf6;
+    --color-purple-solid-text: #ffffff;
+
+    --shadow-card: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 0 15px -3px rgba(16, 185, 129, 0.06);
+    --shadow-card-elevated: 0 20px 35px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(16, 185, 129, 0.12);
+    --shadow-accent-glow: 0 0 16px -2px rgba(16, 185, 129, 0.35);
+  }
+
+  .dark,
+  html.dark,
+  body.dark {
+    /* Dark Theme Semantic Tokens */
+    --color-bg-app: #080A0B;
+    --color-bg-card: rgba(18, 24, 27, 0.72);
+    --color-bg-card-subtle: rgba(255, 255, 255, 0.03);
+    --color-bg-card-elevated: rgba(22, 30, 34, 0.88);
+    --color-bg-surface: rgba(255, 255, 255, 0.05);
+    --color-bg-surface-hover: rgba(255, 255, 255, 0.10);
+    --color-bg-surface-active: rgba(255, 255, 255, 0.16);
+    --color-bg-input: rgba(255, 255, 255, 0.05);
+
+    --color-border-subtle: rgba(255, 255, 255, 0.08);
+    --color-border-medium: rgba(255, 255, 255, 0.14);
+    --color-border-strong: rgba(255, 255, 255, 0.22);
+
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #94a3b8;
+    --color-text-subtle: #64748b;
+    --color-text-placeholder: #64748b;
+
+    --color-accent-text: #34d399;
+    --color-accent-hover: #6ee7b7;
+    --color-accent-surface: rgba(16, 185, 129, 0.15);
+    --color-accent-border: rgba(16, 185, 129, 0.35);
+    --color-accent-solid: #10b981;
+    --color-accent-solid-text: #022c22;
+
+    --color-cyan-text: #38bdf8;
+    --color-cyan-surface: rgba(6, 182, 212, 0.15);
+    --color-cyan-border: rgba(6, 182, 212, 0.35);
+
+    --color-amber-text: #fbbf24;
+    --color-amber-surface: rgba(245, 158, 11, 0.15);
+    --color-amber-border: rgba(245, 158, 11, 0.35);
+
+    --color-rose-text: #fb7185;
+    --color-rose-surface: rgba(244, 63, 94, 0.15);
+    --color-rose-border: rgba(244, 63, 94, 0.35);
+
+    --color-purple-text: #c084fc;
+    --color-purple-surface: rgba(168, 85, 247, 0.15);
+    --color-purple-border: rgba(168, 85, 247, 0.35);
+
+    --color-progress-track: rgba(255, 255, 255, 0.08);
+
+    --color-bg-backdrop: rgba(0, 0, 0, 0.65);
+    --color-bg-backdrop-heavy: rgba(0, 0, 0, 0.85);
+
+    --color-rose-solid: #e11d48;
+    --color-rose-solid-hover: #f43f5e;
+    --color-rose-solid-text: #ffffff;
+
+    --color-cyan-solid: #06b6d4;
+    --color-cyan-solid-text: #082f49;
+    --color-amber-solid: #f59e0b;
+    --color-amber-solid-text: #451a03;
+    --color-purple-solid: #8b5cf6;
+    --color-purple-solid-text: #ffffff;
+
+    --shadow-card: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 30px -10px rgba(16, 185, 129, 0.1);
+    --shadow-card-elevated: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 30px -10px rgba(16, 185, 129, 0.15);
+    --shadow-accent-glow: 0 0 20px -2px rgba(16, 185, 129, 0.45);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+    background-color: var(--color-bg-app);
+    color: var(--color-text-primary);
+  }
+}
+
+/* Glassmorphism helpers driven by semantic color variables */
+.glass-panel {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+.glass-panel-subtle {
+  background: var(--color-bg-card-subtle);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.glass-panel-elevated {
+  background: var(--color-bg-card-elevated);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-border-medium);
+  box-shadow: var(--shadow-card-elevated);
+}
+
+/* Semantic utility classes */
+.text-main { color: var(--color-text-primary); }
+.text-sub { color: var(--color-text-secondary); }
+.text-dim { color: var(--color-text-muted); }
+.text-subtle { color: var(--color-text-subtle); }
+.text-arc-emerald { color: var(--color-accent-text); }
+.text-arc-cyan { color: var(--color-cyan-text); }
+.text-arc-amber { color: var(--color-amber-text); }
+.text-arc-rose { color: var(--color-rose-text); }
+.text-arc-purple { color: var(--color-purple-text); }
+
+.bg-app-theme { background-color: var(--color-bg-app); }
+.bg-card-theme { background-color: var(--color-bg-card); }
+.bg-card-elevated-theme { background-color: var(--color-bg-card-elevated); }
+.bg-surface-theme { background-color: var(--color-bg-surface); }
+.bg-surface-hover-theme:hover { background-color: var(--color-bg-surface-hover); }
+.bg-surface-active-theme { background-color: var(--color-bg-surface-active); }
+.bg-accent-theme { background-color: var(--color-accent-surface); }
+.bg-cyan-theme { background-color: var(--color-cyan-surface); }
+.bg-amber-theme { background-color: var(--color-amber-surface); }
+.bg-rose-theme { background-color: var(--color-rose-surface); }
+.bg-purple-theme { background-color: var(--color-purple-surface); }
+.bg-input-theme { background-color: var(--color-bg-input); }
+.bg-track-theme { background-color: var(--color-progress-track); }
+
+.border-subtle-theme { border-color: var(--color-border-subtle); }
+.border-medium-theme { border-color: var(--color-border-medium); }
+.border-strong-theme { border-color: var(--color-border-strong); }
+.border-accent-theme { border-color: var(--color-accent-border); }
+.border-cyan-theme { border-color: var(--color-cyan-border); }
+.border-amber-theme { border-color: var(--color-amber-border); }
+.border-rose-theme { border-color: var(--color-rose-border); }
+.border-purple-theme { border-color: var(--color-purple-border); }
+
+.bg-backdrop-theme { background-color: var(--color-bg-backdrop); }
+.bg-backdrop-heavy-theme { background-color: var(--color-bg-backdrop-heavy); }
+
+.bg-accent-solid { background-color: var(--color-accent-solid); }
+.border-accent-solid { border-color: var(--color-accent-solid); }
+.text-accent-contrast { color: var(--color-accent-solid-text); }
+
+.bg-cyan-solid { background-color: var(--color-cyan-solid); }
+.border-cyan-solid { border-color: var(--color-cyan-solid); }
+.text-cyan-contrast { color: var(--color-cyan-solid-text); }
+
+.bg-amber-solid { background-color: var(--color-amber-solid); }
+.border-amber-solid { border-color: var(--color-amber-solid); }
+.text-amber-contrast { color: var(--color-amber-solid-text); }
+
+.bg-purple-solid { background-color: var(--color-purple-solid); }
+.border-purple-solid { border-color: var(--color-purple-solid); }
+.text-purple-contrast { color: var(--color-purple-solid-text); }
+
+.bg-rose-solid { background-color: var(--color-rose-solid); }
+.border-rose-solid { border-color: var(--color-rose-solid); }
+.hover\:bg-rose-solid-hover:hover { background-color: var(--color-rose-solid-hover); }
+.text-rose-contrast { color: var(--color-rose-solid-text); }
+
+.pb-safe-nav {
+  padding-bottom: max(12px, env(safe-area-inset-bottom, 14px));
+}
+
+/* Light mode overrides - Crisp contrast and readable dark typography */
+.light,
+html.light,
+body.light {
+  color-scheme: light;
+  color: #0f172a;
+}
+
+.light .glass-panel {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 0 15px -3px rgba(16, 185, 129, 0.06);
+}
+
+.light .glass-panel-subtle {
+  background: rgba(248, 250, 252, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.light .glass-panel-elevated {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 20px 35px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(16, 185, 129, 0.12);
+}
+
+/* Ensure font color visibility across all elements in light mode */
+.light .text-white:not(
+  button.bg-emerald-500,
+  button.bg-emerald-500 *,
+  button.bg-rose-600,
+  button.bg-rose-600 *,
+  button.bg-rose-500,
+  button.bg-rose-500 *,
+  .bg-rose-600,
+  .bg-rose-600 *,
+  .bg-rose-500,
+  .bg-rose-500 *,
+  .bg-emerald-600,
+  .bg-emerald-600 *,
+  .bg-slate-900,
+  .bg-slate-900 *,
+  .bg-slate-950,
+  .bg-slate-950 *
+) {
+  color: #0f172a !important;
+}
+
+/* Maintain crisp text on buttons and colored pills */
+.light .bg-emerald-500,
+.light .bg-emerald-400 {
+  color: #022c22 !important;
+}
+
+.light .bg-emerald-500 *,
+.light .bg-emerald-400 * {
+  color: #022c22;
+}
+
+.light .bg-rose-600,
+.light .bg-rose-600 * {
+  color: #ffffff !important;
+}
+
+/* Readable slate scale in light mode */
+.light .text-slate-100 {
+  color: #0f172a !important;
+}
+
+.light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+.light .hover\:text-white:hover {
+  color: #0f172a !important;
+}
+
+/* Readable vibrant accents on light background */
+.light .text-emerald-400:not(
+  button.bg-emerald-500,
+  button.bg-emerald-500 *,
+  .bg-slate-950 *
+) {
+  color: #047857 !important;
+}
+
+.light .text-emerald-300:not(
+  button.bg-emerald-500,
+  button.bg-emerald-500 *
+) {
+  color: #065f46 !important;
+}
+
+.light .text-cyan-400,
+.light .text-cyan-300 {
+  color: #0e7490 !important;
+}
+
+.light .text-amber-400,
+.light .text-amber-300 {
+  color: #b45309 !important;
+}
+
+.light .text-rose-400,
+.light .text-rose-300 {
+  color: #be123c !important;
+}
+
+/* Light mode border & background corrections */
+.light .border-white\/5,
+.light .border-white\/10,
+.light .border-white\/15,
+.light .border-white\/20,
+.light .border-white\/30 {
+  border-color: rgba(15, 23, 42, 0.09) !important;
+}
+
+.light .bg-white\/5 {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+
+.light .bg-white\/10 {
+  background-color: rgba(15, 23, 42, 0.07) !important;
+}
+
+.light .bg-white\/20 {
+  background-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+.light .bg-white\/\[0\.02\] {
+  background-color: rgba(15, 23, 42, 0.02) !important;
+}
+
+.light .hover\:bg-white\/5:hover {
+  background-color: rgba(15, 23, 42, 0.06) !important;
+}
+
+.light .hover\:bg-white\/10:hover {
+  background-color: rgba(15, 23, 42, 0.09) !important;
+}
+
+.light .bg-\[\#0d1416\]\/85,
+.light .bg-\[\#0a1012\]\/95,
+.light .bg-\[\#0b1214\],
+.light .bg-\[\#121c19\]\/70,
+.light .bg-\[\#0d1614\],
+.light .bg-\[\#080A0B\],
+.light .bg-\[\#0a1012\] {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+}
+
+.light input,
+.light textarea {
+  color: #0f172a !important;
+  background-color: rgba(15, 23, 42, 0.03) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Hide scrollbar for clean carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Safe area insets */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 16px);
+}
+
+/* Subtle glow animations */
+@keyframes emeraldGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px -3px rgba(16, 185, 129, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 25px 0px rgba(16, 185, 129, 0.55);
+  }
+}
+
+.glow-emerald-pulse {
+  animation: emeraldGlowPulse 3s ease-in-out infinite;
+}

@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#0e231d"/>
+      <stop offset="55%" stop-color="#071110"/>
+      <stop offset="100%" stop-color="#020505"/>
+    </radialGradient>
+
+    <!-- Aurora Glow Radial -->
+    <radialGradient id="auroraGlow" cx="50%" cy="40%" r="45%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#06b6d4" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#080c0e" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Mountain Facet Gradients -->
+    <linearGradient id="facetLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="40%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+
+    <linearGradient id="facetRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <linearGradient id="facetCenter" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="35%" stop-color="#67e8f9"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+
+    <linearGradient id="facetShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- Flame & Star Glow -->
+    <linearGradient id="flameGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="50%" stop-color="#34d399"/>
+      <stop offset="85%" stop-color="#67e8f9"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+
+    <!-- Outer Bevel Rim Gradient -->
+    <linearGradient id="rimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(52,211,153,0.4)"/>
+      <stop offset="50%" stop-color="rgba(255,255,255,0.08)"/>
+      <stop offset="100%" stop-color="rgba(14,165,233,0.3)"/>
+    </linearGradient>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="starGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- App Icon Squircle Base -->
+  <rect width="512" height="512" rx="114" fill="url(#bgGrad)"/>
+  <rect width="506" height="506" x="3" y="3" rx="111" fill="none" stroke="url(#rimGrad)" stroke-width="2.5"/>
+
+  <!-- Background Ambient Aurora Atmosphere -->
+  <circle cx="256" cy="230" r="190" fill="url(#auroraGlow)"/>
+
+  <!-- Subtle Concentric Precision Rings -->
+  <circle cx="256" cy="270" r="170" fill="none" stroke="rgba(16,185,129,0.08)" stroke-width="1.5" stroke-dasharray="4 6"/>
+  <circle cx="256" cy="270" r="130" fill="none" stroke="rgba(56,189,248,0.06)" stroke-width="1.5"/>
+
+  <!-- Back Mountain Silhouette -->
+  <polygon points="110,400 190,260 270,400" fill="url(#facetShadow)" opacity="0.6"/>
+  <polygon points="242,400 350,230 420,400" fill="url(#facetShadow)" opacity="0.7"/>
+
+  <!-- Main Stoic Mountain - 3D Polygonal Geometry -->
+  <!-- Left Shade Facet -->
+  <polygon points="256,150 130,390 256,360" fill="url(#facetLeft)" filter="drop-shadow(0 8px 16px rgba(0,0,0,0.5))"/>
+
+  <!-- Right Shade Facet -->
+  <polygon points="256,150 256,360 382,390" fill="url(#facetRight)" filter="drop-shadow(0 8px 16px rgba(0,0,0,0.5))"/>
+
+  <!-- Central Sharp Ridge Spine -->
+  <polygon points="256,150 248,270 256,360 264,270" fill="url(#facetCenter)" opacity="0.85"/>
+
+  <!-- Left Secondary Facet -->
+  <polygon points="256,150 190,280 248,270" fill="#059669" opacity="0.9"/>
+
+  <!-- Right Secondary Facet -->
+  <polygon points="256,150 264,270 322,280" fill="#0284c7" opacity="0.9"/>
+
+  <!-- Glacial Ice Crest (Apex Cap) -->
+  <polygon points="256,150 236,200 256,192 276,200" fill="#ffffff" opacity="0.95"/>
+
+  <!-- Ascending Aurora Flame / Spire of Discipline -->
+  <g filter="url(#softGlow)">
+    <path d="M 256 95 C 242 120 238 140 256 160 C 274 140 270 120 256 95 Z" fill="url(#flameGrad)"/>
+    <path d="M 256 115 C 248 130 246 142 256 154 C 266 142 264 130 256 115 Z" fill="#ffffff" opacity="0.9"/>
+  </g>
+
+  <!-- Radiant North Star / Mindset Diamond at Summit -->
+  <g transform="translate(256, 120)" filter="url(#starGlow)">
+    <!-- 4 Cardinal Rays -->
+    <path d="M 0 -28 L 3 -7 L 24 0 L 3 7 L 0 28 L -3 7 L -24 0 L -3 -7 Z" fill="#ffffff"/>
+    <!-- 4 Diagonal Rays -->
+    <path d="M 0 -14 L 2 -4 L 12 0 L 2 4 L 0 14 L -2 4 L -12 0 L -2 -4 Z" fill="#67e8f9" opacity="0.85" transform="rotate(45)"/>
+    <!-- Glowing Center Spark -->
+    <circle cx="0" cy="0" r="3.5" fill="#ecfdf5"/>
+  </g>
+
+  <!-- Horizon Base Bar & Frost Mist -->
+  <rect x="100" y="388" width="312" height="4" rx="2" fill="url(#rimGrad)" opacity="0.4"/>
+  <ellipse cx="256" cy="400" rx="140" ry="12" fill="#10b981" opacity="0.12" filter="url(#softGlow)"/>
+</svg>
